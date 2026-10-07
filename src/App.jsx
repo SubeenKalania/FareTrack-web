@@ -1,59 +1,16 @@
-import Button from "./components/Button";
-import FormField from "./components/formField";
+import {useState} from "react";
 import InputForm from "./components/InputForm";
 import Navbar from "./components/Navbar";
 import FlightRow from "./components/FlightRow";
+import AuthModal from "./components/AuthModal";
 
 function App() {
+  const [showAuth, setShowAuth]= useState(false);
   return (
     <>
-      <Navbar />
-      {/* blur backdrop */}
-      <div className="flex items-center justify-center fixed top-0 left-0 w-full h-full z-50 bg-cyan/50 backdrop-blur-xs">
-        {/* Signup card div */}
-        <div className=" p-4 flex justify-center items-left flex-col h-150 w-140 bg-surfaceColor rounded-4xl border border-gray-800 shadow-[0px_10px_30px] shadow-buttonShadow/10">
-          <div className="flex justify-between items-start px-11">
-            <div className="flex flex-col gap-2 ">
-              <h2 className="font-inter text-white font-semibold text-4xl">
-                {" "}
-                Create your account
-              </h2>
-              <p className="font-inter text-gray-700 font-light text-l">
-                Track prices and get alerts when they drop
-              </p>
-            </div>
-            <Button text="✕" variant="secondary"></Button>
-          </div>
+      <Navbar onSignUpClick={()=>{setShowAuth(true)}} />
+      {showAuth && <AuthModal onClose={()=> {setShowAuth(false)}}/>}
 
-          {/* form fields and buttons */}
-          <div className="w-full flex flex-col px-10 gap-6 pt-5 text-gray-700">
-            <FormField id="name" label={"NAME"} placeholder={"Your Name"} />
-            <FormField
-              id="email"
-              label={"EMAIL"}
-              placeholder={"you@example.com"}
-            />
-            <FormField
-              id="password"
-              label={"PASSWORD"}
-              placeholder={"At least 8 characters"}
-            />
-            <Button text="Create account" variant="primary">
-              Create account
-            </Button>
-            <div className="flex items-center justify-center">
-              <span className="font-inter font-light text-l pt-2 pl-7 text-gray-500 font-light">
-                Already have an account?
-              </span>
-              <span>
-                <button className="font-inter font-light text-l pt-2 pl-2 text-cyan-400 cursor-pointer hover:text-cyan-300">
-                  Sign in
-                </button>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="pl-15 pt-15 pr-15 max-w-350 mx-auto px-6">
         <h1 className="max-w-4xl text-white text-6xl font-inter font-semibold ">
           Track flight prices before you book.

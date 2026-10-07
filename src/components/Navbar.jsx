@@ -1,7 +1,7 @@
 import Button from "./Button"
 
 
-function Navbar(){
+function Navbar({onSignUpClick}){
     return(
         
     <>
@@ -9,7 +9,7 @@ function Navbar(){
             <div>
                 <span className="font-semibold text-2xl text-white">fare</span><span className="text-2xl font-semibold text-buttonHoverBg">track</span>
              </div> 
-             <Button text="Sign up" variant="secondary"/>
+             <Button text="Sign up" variant="secondary" onClick={onSignUpClick}/>
         </div>
     </>
     )

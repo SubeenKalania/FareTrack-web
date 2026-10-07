@@ -13,6 +13,8 @@
     --color-formTextColor: #565d6b;
     --font-inter:"Inter",sans-serif;
     --font-mono:"JetBrains Mono",monospace;
+    --animate-pop: pop 0.2s ease-out;
+    --animate-popOut: popOut 0.2s ease-in forwards;
 }
 
 
@@ -20,3 +22,26 @@
 body {
   background-color: var(--color-bodyBg);
 }
+
+@keyframes pop{
+  from{
+    opacity: 0;
+    transform: scale(0.90);
+  }to{
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+}
+
+@keyframes popOut {
+  from{
+    opacity: 1;
+    transform: scale(1);
+  }to{
+    opacity: 0;
+    transform: scale(0.90);
+  }
+  
+}
+
