@@ -10,31 +10,31 @@ function InputForm({ id, label, placeholder, text }) {
   const [selectedDate, setSelctedDate] = useState(new Date());
   return (
     <>
-      <div className=" flex flex-col md:flex-row gap-2 bg-surfaceColor p-4 rounded-md border border-gray-800">
+      <div className=" flex flex-col md:flex-row gap-2 bg-surfaceColor p-7 rounded-3xl border border-gray-800">
         <FormField id="from-field" label="FROM" placeholder="JFK" />
         <FormField id="to-field" label="TO" placeholder="LAX" />
         <div className="relative flex-1">
           <FormField
             id="date-field"
             label="DATE"
-            placeholder="OCT 14"
+            placeholder="Pick a Date"
             value={format(selectedDate, "MMM d")}
             onClick={() => setIsOpen(true)}
             readOnly={true}
           />
           {isOpen && (
-            <div className=" text-white absolute top-full left-0 m-2 z-10 bg-surfaceColor border border-gray-800 shadow-[0px_1px_30px] shadow-buttonShadow/10 rounded-md p-2 "> 
-            <DayPicker
-              mode="single"
-              disabled={{ before: new Date()}}
-              style={{ "--rdp-accent-color": "var(--color-buttonBg)" }}
-              required
-              selected={selectedDate}
-              onSelect={(date) => {
-                setSelctedDate(date);
-                setIsOpen(false);
-              }}
-            />
+            <div className=" text-white absolute top-full left-0 m-2 z-10 bg-surfaceColor border border-gray-800 shadow-[0px_1px_30px] shadow-buttonShadow/10 rounded-md p-2 ">
+              <DayPicker
+                mode="single"
+                disabled={{ before: new Date() }}
+                style={{ "--rdp-accent-color": "var(--color-buttonBg)" }}
+                required
+                selected={selectedDate}
+                onSelect={(date) => {
+                  setSelctedDate(date);
+                  setIsOpen(false);
+                }}
+              />
             </div>
           )}
         </div>
