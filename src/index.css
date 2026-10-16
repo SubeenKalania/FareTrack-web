@@ -18,6 +18,10 @@ body {
   background-color: var(--color-bodyBg);
 }
 
+.scroll-dark{
+  scrollbar-width: thin;
+  scrollbar-color: #2a303c transparent;
+}
 @keyframes pop {
   from {
     opacity: 0;
