@@ -1,4 +1,4 @@
-function Button({ text, variant = "primary", onClick }) {
+function Button({ text, variant = "primary", onClick, className="" }) {
   const styles = {
     primary:
       "items-center justify-center shadow-[0px_1px_30px] shadow-buttonShadow/30 text-black hover:text-black bg-buttonBg hover:bg-buttonHoverBg hover:shadow-buttonShadow/50 rounded-xl px-4 py-3   active:translate-y-1  active:shadow-sm active:bg-buttonBg font-semibold",
@@ -9,7 +9,7 @@ function Button({ text, variant = "primary", onClick }) {
     <>
       <button
         onClick={onClick}
-        className={`cursor-pointer transition duration-200 ${styles[variant]}`}
+        className={`cursor-pointer transition duration-200 ${styles[variant]} ${className}`}
       >
         {text}
       </button>
