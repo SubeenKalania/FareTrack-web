@@ -4,13 +4,12 @@ import Navbar from "../components/Navbar";
 import FlightRow from "../components/FlightRow";
 import AuthModal from "../components/AuthModal";
 
-
-
-function SearchPage(){
-    const [showAuth, setShowAuth] = useState(false);
-      return (
+function SearchPage({ user, setUser }) {
+  const [showAuth, setShowAuth] = useState(false);
+  return (
     <>
       <Navbar
+        user={user}
         onSignUpClick={() => {
           setShowAuth(true);
         }}
@@ -61,11 +60,13 @@ function SearchPage(){
           onClose={() => {
             setShowAuth(false);
           }}
+          onSuccess={(newUser) => {
+            setUser(newUser);
+          }}
         />
       )}
     </>
   );
-
 }
 
 export default SearchPage;
