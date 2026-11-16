@@ -80,7 +80,7 @@ function DashboardPage({ user, setUser }){
                     <Button text="Track a new Flight" className="w-60 justify-self-end"></Button>
                 </div>
 
-                <div className="overflow-x-auto pb-10 scroll-dark">
+                <div className="overflow-x-auto pb-10 scroll-bar">
                     {/* -------------------------------HeaderRow------------------------------- */}
                     <div className="min-w-250">
                         <div className="gap-8 py-5 grid grid-cols-[1fr_1.5fr_2fr_1fr_1fr_2fr_160px] items-center font-inter text-gray-600" >
