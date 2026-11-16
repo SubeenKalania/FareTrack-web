@@ -4,7 +4,7 @@ function FormField({ error, id, label, placeholder, value, readOnly, onClick, ty
       <div className="flex flex-col gap-1 flex-1">
         <label
           htmlFor={id}
-          className="text-formTextColor font-Inter font-light"
+          className="text-formTextColor font-inter font-light"
         >
           {label}
         </label>

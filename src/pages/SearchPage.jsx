@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputForm from "../components/InputForm";
+import InputForm from "../components/FlightInputForm";
 import Navbar from "../components/Navbar";
 import FlightRow from "../components/FlightRow";
 import AuthModal from "../components/AuthModal";

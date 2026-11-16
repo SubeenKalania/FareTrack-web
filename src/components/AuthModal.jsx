@@ -73,7 +73,7 @@ function AuthModal({ onClose, onSuccess }) {
             }
           }}
         >
-          <div className="flex justify-between items-start px-11">
+          <div className="flex justify-between items-start px-10 w-full">
             <div className="flex flex-col gap-2 ">
               <h2 className="font-inter text-white font-semibold text-4xl">
                 {isSignUp ? "Create your account" : "Welcome Back"}

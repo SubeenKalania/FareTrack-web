@@ -17,7 +17,7 @@ function Navbar({ onSignUpClick, user }) {
             <Link to="/" className="text-gray-400 font-inter hover:text-buttonBg">
               Search flights
             </Link>
-            <Avatar name={user.name} />
+            <Avatar name={user.name} size="sm" />
           </div>
         ) : (
           <Button text="Sign up" variant="secondary" onClick={onSignUpClick} />
