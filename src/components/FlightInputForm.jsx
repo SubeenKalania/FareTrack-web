@@ -98,11 +98,11 @@ function FlightInputForm({onSearch}) {
           onFocus={()=> setFromOpen(true)}/>
 
           {isFromOpen && (
-            <div className="absolute top-full left-0 max-h-70 z-10 w-110  mt-2.5 p-3 bg-surfaceColor border border-gray-800 rounded-4xl flex flex-col gap-0.5 animate-dropdown shadow-[0px_1px_30px] shadow-buttonShadow/10 ">
+            <div className="absolute top-full left-0 max-h-70 z-10 w-110  mt-2.5 p-3 bg-surfaceColor border border-gray-800 rounded-4xl flex flex-col gap-0.5 animate-dropdown shadow-[0px_1px_30px] shadow-buttonShadow/10 " >
 
               <div className="overflow-y-auto scroll-bar cursor-pointer pr-1">
                  {fromSuggestions.map((airport) => (
-                <button type="button" key={airport.code}  className="group text-white flex hover:bg-white/3 cursor-pointer rounded-2xl items-center gap-3 w-full text-left px-3 py-2.5 transition-colors duration-200 ease-out">
+                <button type="button" key={airport.code}  className="group text-white flex hover:bg-white/3 cursor-pointer rounded-2xl items-center gap-3 w-full text-left px-3 py-2.5 transition-colors duration-200 ease-out" onClick={()=> { setFrom(airport.city + " " + airport.code); setFromOpen(false);}}>
                   <span className="group-hover:bg-accentColor/20 transition-colors duration-200 w-14 text-center shrink-0 py-1 rounded-lg font-mono text-lg tracking-wider font-bold  text-accentColor bg-accentColor/10">{airport.code}</span> 
                   <div className="flex flex-col">
                     <span className="text-lg font-inter font-medium">{airport.city}, {airport.country}</span>
@@ -131,8 +131,8 @@ function FlightInputForm({onSearch}) {
             <div className="absolute top-full left-0 max-h-70 z-10 w-110 mt-1.5 p-3 bg-surfaceColor border border-gray-800 rounded-4xl flex flex-col gap-0.5  animate-dropdown shadow-[0px_1px_30px] shadow-buttonShadow/10">
 
               <div className="overflow-y-auto scroll-bar cursor-pointer pr-1">
-                 {fromSuggestions.map((airport) => (
-                <button type="button" key={airport.code}  className="group text-white flex hover:bg-white/3 cursor-pointer rounded-2xl items-center gap-3 w-full text-left px-3 py-2.5 transition-colors duration-200 ease-out">
+                 {toSuggestions.map((airport) => (
+                <button type="button" key={airport.code}  className="group text-white flex hover:bg-white/3 cursor-pointer rounded-2xl items-center gap-3 w-full text-left px-3 py-2.5 transition-colors duration-200 ease-out" onClick={()=> {setTo(airport.city+" "+airport.code); setToOpen(false);}}>
                   <span className="group-hover:bg-accentColor/20 transition-colors duration-200 w-14 text-center shrink-0 py-1 rounded-lg font-mono text-lg tracking-wider font-bold  text-accentColor bg-accentColor/10">{airport.code}</span> 
                   <div className="flex flex-col">
                     <span className="text-lg font-inter font-medium">{airport.city}, {airport.country}</span>
