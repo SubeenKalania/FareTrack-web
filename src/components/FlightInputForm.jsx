@@ -1,7 +1,7 @@
 import Button from "./Button";
 import { useState} from "react";
-import DateField from "./DateField";
-import AirportField from "./AirportField";
+import DateField from "./DateField.jsx";
+import AirportField from "./AirportField.jsx";
 
 
 
@@ -11,6 +11,8 @@ function FlightInputForm({onSearch}) {
   const [to, setTo] = useState("");
   const [fromError, setFromError]=useState("");
   const [toError, setToError]=useState(""); 
+  const[fromCode, setFromCode]=useState("");
+  const[toCode, setToCode]=useState("");
   
 
  
@@ -53,9 +55,16 @@ function FlightInputForm({onSearch}) {
         id="from"
         placeholder="City, country, or airport"
         value={from}
-        onChange={(e)=> setFrom(e.target.value)}
+        onChange={(e)=> {
+          setFromCode("")
+          setFrom(e.target.value)}
+        }
         error={fromError}
-        onPick={(airport)=>setFrom(airport.code + " "+ airport.city)}
+        code={fromCode}
+        onPick={(airport)=>{
+          setFrom(airport.code + " "+ airport.city)
+          setFromCode(airport.code);
+        }}
         />
         
         <AirportField 
@@ -63,9 +72,16 @@ function FlightInputForm({onSearch}) {
         id="to"
         placeholder="City, country, or airport"
         value={to}
-        onChange={(e)=> setTo(e.target.value)}
+        onChange={(e)=> {
+          setToCode("")
+          setTo(e.target.value)}
+        }
         error={toError}
-        onPick={(airport)=>setTo(airport.code + " "+ airport.city)}
+        code={toCode}
+        onPick={(airport)=>{
+          setToCode(airport.code)
+          setTo(airport.code + " "+ airport.city)}
+        }
         />
 
         <DateField selectedDate={selectedDate}
